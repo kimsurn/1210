@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2</title>
+
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+    <script src="https://use.typekit.net/dcf1ame.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <link href="https://fonts.googleapis.com/css?family=Kirang+Haerang|Poiret+One|Rock+Salt|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR" rel="stylesheet">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+body { margin:0; width: 100%; background: black; transition: all 0.7s;}
+
+#box {position: fixed; left:53%; top: 4%; width: 25%; height: 10%; z-index: 10;}
+
+#boxes {width: 42%; height: 54%; position: absolute; left: 53.3%; top: 42%; overflow:auto; z-index: 999;}
+
+#black {background-color: black; position: fixed; left:53%; top: 4%; width: 25%; height: 10%;z-index: 1;}
+
+#whiteline{width: 44%; height: 85%; position: fixed; left: 4%; top: 12%; opacity: 0.3; }
+#whiteline2{width: 44%; height: 85%; position: absolute; right: 4%; top: 90px; opacity: 0.3; z-index: 2;}
+#whiteline3{width:10%; height: auto; position: absolute; right: 4.7%; top: 5%; opacity: 0.4; z-index: 88;}
+
+#park {width: 35.7%; position: relative; float: left; margin-top: 30px; margin-left: 130px;}
+
+#vs1 {width: 30%; height: 8%; background-color: black; position: absolute; top: 55%; right:11%; z-index: 3; display: none;}
+#vs2 {width: 30%; height: 8%; background-color: black; position: absolute; top: 67%; right:11%; z-index: 4; display: none;}
+#vs3 {width: 30%; height: 8%; background-color: black; position: absolute; top: 79%; right:11%; z-index: 5; display: none;}
+
+#go {width: 2%; position: absolute; left: 49%; display: inline; top: 13%;}
+#go_1 {width: 2%; position: absolute; left: 49%;top: 13%; display: none;}
+#go1 {width: 2%; position: absolute; left: 49%; bottom: 3%; display: inline;}
+#go2 {width: 35px; position: absolute; left: 49%; bottom: 18px; display: none;}
+
+/*#category {width: 120px; position: relative; float: left; margin: 30px 30px;}*/
+
+#drag{width: 320px; position: absolute; top: -50px; left: -50px; opacity: 1; display: inline;}
+#drag:hover{opacity: 0.7; z-index: 999; transition: all 0.1s;}
+
+#inline img{display: inline;}
+
+#print {position: fixed; left: 48%; top: 1%; width: 4%; z-index: 999;}
+#print:hover {opacity: 0.9; filter: blur(1px); z-index: 999;}
+
+#float {position: relative; float: left;}
+
+#popup {position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; width: 20%; margin: 30% auto; background: white; display: none;}
+#popup img{width: 20%; background: white; display: none;}
+
+#popupgeul {position: absolute; top:30px; left:0px; bottom: 0px; right: 0px; width: 20%; margin: 30% auto; display: none; color: white; background: red;}
+
+#my-image {width: 10%; position: absolute; right: 4.7%; top: 13%; background-color: #af0808; z-index: 999;}
+#my-image2 {width: 7%; position: absolute; right: 4.7%; top: 13%; background-color: #af0808; z-index: 999;}
+#my-image3 {width: 7%; position: absolute; right: 4.7%; top: 13%; background-color: #af0808; z-index: 999;}
+#my-image3 {width: 7%; position: absolute; right: 4.7%; top: 13%; background-color: #af0808; z-index: 999;}
+
+*h1,h3,p{font-family: 'Nanum Myeongjo', serif;}
+	h2{font-family: 'Permanent Marker', cursive;}
+
+	h2{font-size: 4.1em; font-weight: 400; line-height: 1.1; text-align: left; color: black;}
+	h2:hover {color: #af0808; -webkit-text-stroke: 2px #af0808; /*background-color: white; text-shadow: 3px 3px 2px black; box-shadow:6px 6px 1px purple; */}
+	h3{font-weight: 200; color: white; font-size: 1em; text-align: left;}
+	h3:hover {color: #af0808; -webkit-text-stroke: 1px #af0808; /*background-color: white; text-shadow: 3px 3px 2px black; box-shadow:6px 6px 1px purple; */}
+	h4{font-weight: 200; color: white; line-height: 1.7; font-size: 1em; text-align: left; }
+
+span:hover {color: #af0808;}
+
+</style>
+</head>
+
+<body>
+	<div id="vs1"><h3>2D Drawing//이걸 선택하면 옆의 이미지에서 드래그앤드롭은 사라지고 </h3></div>
+	<div id="vs2"><h3>Processing Drawing//선택 이미지만 나오게하겟습니다</h3></div>
+	<div id="vs3"><h3>Picture</h3></div>
+
+	<a href="last1.html"><img src="./last/print.png" id="print"></a>
+
+	<img src="./last/whiteline.png" id="whiteline">
+	<img src="./last/whiteline.png" id="whiteline2">
+	<img src="./last/whiteline.png" id="whiteline3">
+
+	<a href="last1-1.html"><img src="./last/go.png" id="go_1" 
+	style="transform: rotate(180deg);" 
+	onMouseOver="this.src='./last/go1.png'"
+	onMouseOut="this.src='./last/go.png'"> </a>
+
+	<img src="./last/go.png" id="go1" 
+	onMouseOver="this.src='./last/go1.png'"
+	onMouseOut="this.src='./last/go.png'">
+
+	<img src="./last/go.png" id="go2" 
+	onMouseOver="this.src='./last/go1.png'"
+	onMouseOut="this.src='./last/go.png'">
+
+	<div id="boxes">
+		<h4>이목구비가 없는 사진.</h4>
+		<h3><a id="my-text" class="text1">이 사람은 <b>누구</b></a>일까요?</h3>
+		<h3><a id="my-text2" class="text2">알코올이 아닌 <b>카페인 중독자</b>인 대학생.</a></h3>
+		<h3>그래픽에는 관심없는 천상 디지털컨텐츠 전공자이며 게임에 관심이 많아 졸전에선 무슨 게임을 하게 될 지 (나 혼자) 기대하고 있는 학원생.</h3><h3>먼 거리에서 통학을 하지만 4학년에도 자취는 하지 않겠다고 하는 머단한 예비 졸업생.</h3><br>
+		<h4>그녀의 하루는 <a id="my-text3" class="text3"><span><b>미쯔</b></span></a>로 시작된다. 아침에 <a id="my-text4" class="text4"><span><b>통학생의 비애</b></span></a>로 일찍 일어나  느껴지는 아침의 잠을 세수 한 번으로 씻어버리고, 자신의 활력소인 반려동물 미쯔에게 인사를 해주며 이불을 덮어주며 쌀쌀한 바람과 맞서기 위해 나오는 그녀. 하지만 아직도 느껴지는 잠을 떨치기 위해 아침마다 아메리카노 한 잔씩을 마시는 것은 버릇되었다. 어디를 가든 무엇을 하든 그의 손에는 늘 아메리카노 한 잔이 있다. 그래서 근처 카페의 커피 맛을 알고 구별할 수 있는 재능까지 갖게되며, 학교 내 카페의 쿠폰은 이미 여러번 채워 공짜 커피까지 많이 먹었다. 심지어는 카페 매니저와 알바생은 그녀의 메뉴가 무엇인지 얼굴만 봐도 알아버리는 명실상부 커피매니아이다.<br><br>자주쓰는 단어 : 풍월량, 분노조절장애, 미쯔, 커피, 한딱까리, </h4></div>
+
+	<img src="./last/park.png" id="park">
+
+	<div id="box" style="-webkit-text-stroke: 1px white;"><h2> whose<br>fingerprint<br>is this?</h2></div>
+
+	<div class="drag inline"><img src="./last/face1.png" id="drag" style="position: absolute; top: 90px; left: 130px;"></div>
+	<div class="drag inline"><img src="./last/face2.png" id="drag" style="position: absolute; top: 230px; left: 350px;"></div>
+	<div class="drag inline"><img src="./last/face3.png" id="drag" style="position: absolute; top: 460px; left: 70px;"></div>
+
+	<script type="text/javascript">
+	(function(){
+		var d = false;
+		var target,dx,dy;
+		var t = document.getElementsByClassName("drag");
+		for(var i=0; i<t.length; i++){
+			t[i].style.display = "block";
+			t[i].style.position = "absolute";
+			t[i].style.cursor = "pointer";
+			t[i].ondragstart = function(e){e.preventDefault();};
+			t[i].onmousedown = function(e){ d = true; dx = e.offsetX; dy = e.offsetY; target = e.target;}
+			t[i].onmouseup = function(){ d = false;}
+			window.onmousemove = function(e){ 
+				if(d){ target.style.left = (e.clientX - dx) + "px";
+					target.style.top = (e.clientY - dy) + "px";}
+			}
+		}
+	})();
+
+	//카테고리 온클릭이벤트
+	var toggle = "off"
+		go1.onclick = function(){
+			if(toggle == "off"){
+				go1.setAttribute("src","./go1.png");
+				toggle = "on"
+				document.body.style.background = "rgb(175,8,8)";
+				/*rgb(222,205,165)*/
+				box.style.display= "none";
+				boxes.style.display= "none";
+				go1.style.display = "none";
+				go_1.style.display = "inline";
+				vs1.style.display = "inline";
+				vs2.style.display = "inline";
+				vs3.style.display = "inline";
+				}
+			}
+
+	var toggle = "off"
+	
+			go_1.onclick = function(){
+			if(toggle == "off"){
+				go_1.setAttribute("src","./go1.png");
+				toggle = "on"
+				document.body.style.background = "black";
+				/*rgb(222,205,165)*/
+
+				box.style.display= "inline";
+				boxes.style.display= "inline";
+				go1.style.display = "inline";
+				go.style.display = "inline";
+				go_1.style.display = "none";
+				drag.style.display = "inline";
+				}
+			}
+
+			go.onclick = function(){
+			if(toggle == "off"){
+				go1.setAttribute("src","./go.png");
+				toggle = "on"
+				document.body.style.background = "black";
+				/*rgb(222,205,165)*/
+
+				box.style.display= "none";
+				boxes.style.display= "none";
+				}
+			}
+
+
+	
+	</script>
+
+  <img id="my-image" src="./last/print.png" class="ima1" style="display:none;"> 
+  <img id="my-image2" src="./last/face3.png" class="ima2" style="display:none;">
+  <img id="my-image3" src="./last/face3.png" class="ima3" style="display:none;">
+  <img id="my-image4" src="./last/face3.png" class="ima4" style="display:none;"> 
+
+  <script> 
+      document.getElementById("my-text").addEventListener("mouseover", function () {document.getElementById("my-image").style.display = ""; 
+      	document.getElementById("sajock").style.display = "";
+      }); 
+      document.getElementById("my-text").addEventListener("mouseleave", function () {document.getElementById("my-image").style.display = "none";
+      document.getElementById("sajock").style.display = "none"; 
+      }); 
+
+      document.getElementById("my-text2").addEventListener("mouseover", function () { 
+            document.getElementById("my-image2").style.display = ""; 
+      }); 
+      document.getElementById("my-text2").addEventListener("mouseleave", function () { 
+            document.getElementById("my-image2").style.display = "none"; 
+      }); 
+
+      document.getElementById("my-text3").addEventListener("mouseover", function () { 
+            document.getElementById("my-image3").style.display = ""; 
+      }); 
+      document.getElementById("my-text3").addEventListener("mouseleave", function () { 
+            document.getElementById("my-image3").style.display = "none"; 
+      }); 
+  </script> 
+
+</body>
+</html>
